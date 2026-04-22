@@ -3,26 +3,109 @@
 <head>
   <title>Rayaru Infotech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <style>
-    body { font-family: Arial; margin: 0; background: #f5f5f5; }
-    header { background: #222; color: white; padding: 15px; text-align: center; }
-    section { padding: 20px; }
-    .card { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; }
+    body { margin:0; font-family: Arial; background:#f4f6f9; }
+
+    header {
+      background:#0d6efd;
+      color:white;
+      padding:15px 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    header h2 { margin:0; }
+
+    .btn {
+      background:white;
+      color:#0d6efd;
+      padding:8px 15px;
+      border-radius:5px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .hero {
+      display:flex;
+      flex-wrap:wrap;
+      padding:40px;
+      background:white;
+      align-items:center;
+    }
+
+    .hero-text { flex:1; }
+    .hero-text h1 { font-size:32px; }
+    .hero-text p { color:#555; }
+
+    .hero img {
+      width:300px;
+      max-width:100%;
+    }
+
+    .services {
+      padding:30px;
+      text-align:center;
+    }
+
+    .cards {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+    }
+
+    .card {
+      background:white;
+      padding:20px;
+      width:250px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact {
+      background:white;
+      padding:30px;
+      margin:30px;
+      border-radius:10px;
+    }
+
     input, select, textarea {
-      width: 100%; padding: 10px; margin: 8px 0;
-      border-radius: 5px; border: 1px solid #ccc;
+      width:100%;
+      padding:10px;
+      margin:8px 0;
+      border-radius:5px;
+      border:1px solid #ccc;
     }
+
     button {
-      background: #28a745; color: white;
-      padding: 10px; border: none; border-radius: 5px;
-      cursor: pointer;
+      background:#0d6efd;
+      color:white;
+      padding:10px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      width:100%;
     }
+
+    footer {
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:15px;
+    }
+
     .whatsapp {
-      position: fixed; bottom: 20px; right: 20px;
-      background: green; color: white;
-      padding: 12px 15px; border-radius: 50%;
-      text-decoration: none;
-      font-size: 18px;
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25D366;
+      color:white;
+      padding:12px;
+      border-radius:50%;
+      text-decoration:none;
+      font-size:20px;
     }
   </style>
 </head>
@@ -31,48 +114,67 @@
 
 <header>
   <h2>Rayaru Infotech</h2>
+  <a class="btn" href="https://wa.me/919999999999" target="_blank">WhatsApp</a>
 </header>
 
-<section>
-  <div class="card">
-    <h3>Welcome to Our Services</h3>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Your Trusted Partner for Courier, IT & Security Solutions</h1>
     <p>
       We offer trusted DTDC courier services, professional laptop repair and maintenance,
       and reliable CCTV installation for homes and businesses.
     </p>
   </div>
+</section>
 
-  <div class="card">
-    <h3>Our Services</h3>
-    <ul>
-      <li>📦 DTDC Courier Services</li>
-      <li>💻 Laptop Repair & Sales</li>
-      <li>📹 CCTV Installation</li>
-    </ul>
-  </div>
+<section class="services">
+  <h2>Our Services</h2>
 
-  <div class="card">
-    <h3>Contact Us</h3>
-    <form id="leadForm">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="tel" id="phone" placeholder="Phone Number" required>
-      
-      <select id="service">
-        <option>DTDC Courier</option>
-        <option>Laptop Service</option>
-        <option>CCTV Installation</option>
-      </select>
+  <div class="cards">
+    <div class="card">
+      <h3>📦 DTDC Courier</h3>
+      <p>Fast and secure domestic & international courier services.</p>
+    </div>
 
-      <textarea id="message" placeholder="Your Message"></textarea>
-      <button type="submit">Submit</button>
-    </form>
+    <div class="card">
+      <h3>💻 Laptop Services</h3>
+      <p>Repair, upgrade, and sales of laptops with expert support.</p>
+    </div>
+
+    <div class="card">
+      <h3>📹 CCTV Installation</h3>
+      <p>Professional CCTV setup for home, office, and shops.</p>
+    </div>
   </div>
 </section>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+
+  <form id="leadForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+    <select id="service">
+      <option>DTDC Courier</option>
+      <option>Laptop Service</option>
+      <option>CCTV Installation</option>
+    </select>
+
+    <textarea id="message" placeholder="Your Message"></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Rayaru Infotech | All Rights Reserved
+</footer>
 
 <a class="whatsapp" href="https://wa.me/919999999999" target="_blank">💬</a>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwGhMMD06LIptzVw4OsyxLo45fWpPjz239-ZzEZAFgtdWsZ1Ul17c5M_h9CoFFe4qmnow/exec";
+const scriptURL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
 document.getElementById("leadForm").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -90,7 +192,7 @@ document.getElementById("leadForm").addEventListener("submit", function(e) {
   })
   .then(res => res.json())
   .then(() => {
-    alert("Submitted successfully!");
+    alert("Thanks! We will contact you soon.");
     document.getElementById("leadForm").reset();
   })
   .catch(err => alert("Error: " + err));
