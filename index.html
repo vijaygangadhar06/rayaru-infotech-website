@@ -4,103 +4,152 @@
   <title>Rayaru Infotech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    body { margin:0; font-family: Arial; background:#f4f6f9; }
+    body {
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background:#f5f7fb;
+    }
 
     header {
-      background:#0d6efd;
-      color:white;
-      padding:15px 30px;
+      background:#ffffff;
+      padding:15px 40px;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
     }
 
-    header h2 { margin:0; }
+    header h2 {
+      margin:0;
+      color:#0d6efd;
+    }
 
     .btn {
-      background:white;
-      color:#0d6efd;
-      padding:8px 15px;
-      border-radius:5px;
+      background:#0d6efd;
+      color:white;
+      padding:10px 18px;
+      border-radius:6px;
       text-decoration:none;
-      font-weight:bold;
+      font-weight:500;
     }
 
+    /* HERO */
     .hero {
-      display:flex;
-      flex-wrap:wrap;
-      padding:50px;
-      background:white;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
       align-items:center;
-      gap:30px;
+      padding:60px 40px;
+      background:white;
     }
 
-    .hero-text { flex:1; }
-    .hero-text h1 { font-size:32px; margin-bottom:10px; }
-    .hero-text p { color:#555; }
+    .hero h1 {
+      font-size:36px;
+      margin-bottom:15px;
+      color:#222;
+    }
+
+    .hero p {
+      color:#555;
+      line-height:1.6;
+    }
+
+    .hero-buttons {
+      margin-top:20px;
+    }
+
+    .hero-buttons a {
+      margin-right:10px;
+    }
 
     .hero img {
-      width:350px;
-      max-width:100%;
+      width:100%;
+      max-width:420px;
+      justify-self:center;
     }
 
+    /* SERVICES */
     .services {
-      padding:40px;
+      padding:50px 30px;
       text-align:center;
     }
 
+    .services h2 {
+      margin-bottom:30px;
+    }
+
     .cards {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
       gap:20px;
+      max-width:1000px;
+      margin:auto;
     }
 
     .card {
       background:white;
-      padding:20px;
-      width:260px;
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      text-align:center;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover {
+      transform:translateY(-5px);
     }
 
     .card img {
-      width:80px;
+      width:70px;
+      margin-bottom:15px;
+    }
+
+    .card h3 {
       margin-bottom:10px;
     }
 
+    .card p {
+      color:#666;
+      font-size:14px;
+    }
+
+    /* CONTACT */
     .contact {
       background:white;
+      margin:40px auto;
+      max-width:700px;
       padding:30px;
-      margin:30px;
-      border-radius:10px;
+      border-radius:12px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
     }
 
     input, select, textarea {
       width:100%;
       padding:10px;
-      margin:8px 0;
-      border-radius:5px;
+      margin:10px 0;
+      border-radius:6px;
       border:1px solid #ccc;
     }
 
     button {
+      width:100%;
+      padding:12px;
       background:#0d6efd;
       color:white;
-      padding:10px;
       border:none;
-      border-radius:5px;
+      border-radius:6px;
+      font-size:16px;
       cursor:pointer;
-      width:100%;
     }
 
     footer {
-      background:#222;
+      background:#111;
       color:white;
       text-align:center;
-      padding:15px;
+      padding:20px;
+      margin-top:30px;
     }
 
     .whatsapp {
@@ -114,6 +163,13 @@
       text-decoration:none;
       font-size:20px;
     }
+
+    @media(max-width:768px){
+      .hero {
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+    }
   </style>
 </head>
 
@@ -125,15 +181,20 @@
 </header>
 
 <section class="hero">
-  <div class="hero-text">
+  <div>
     <h1>Your Trusted Partner for Courier, IT & Security Solutions</h1>
     <p>
       We offer trusted DTDC courier services, professional laptop repair and maintenance,
       and reliable CCTV installation for homes and businesses.
     </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="#">Our Services</a>
+      <a class="btn" style="background:#6c757d" href="#">Contact Us</a>
+    </div>
   </div>
 
-  <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png" alt="Service Image">
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 </section>
 
 <section class="services">
@@ -143,19 +204,19 @@
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/512/679/679922.png">
       <h3>DTDC Courier</h3>
-      <p>Fast & secure domestic and international delivery.</p>
+      <p>Fast & secure delivery services with reliable handling.</p>
     </div>
 
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png">
       <h3>Laptop Services</h3>
-      <p>Repair, upgrades, and laptop sales.</p>
+      <p>Repair, upgrade, and sales handled by experts.</p>
     </div>
 
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/512/3602/3602123.png">
       <h3>CCTV Installation</h3>
-      <p>Security camera setup for home & business.</p>
+      <p>Professional security solutions for all environments.</p>
     </div>
   </div>
 </section>
@@ -206,8 +267,7 @@ document.getElementById("leadForm").addEventListener("submit", function(e) {
   .then(() => {
     alert("Thanks! We will contact you soon.");
     document.getElementById("leadForm").reset();
-  })
-  .catch(err => alert("Error: " + err));
+  });
 });
 </script>
 
