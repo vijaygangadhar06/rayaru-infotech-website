@@ -1,275 +1,523 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Rayaru Infotech</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rayaru Infotech – Courier, IT & Security Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      margin:0;
-      font-family: 'Poppins', sans-serif;
-      background:#f5f7fb;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --navy-dark: #0f1a33;
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
+      --blue-pale: #eff6ff;
+      --accent: #16a34a;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
     }
 
-    header {
-      background:#ffffff;
-      padding:15px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      box-shadow:0 2px 8px rgba(0,0,0,0.05);
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); }
 
-    header h2 {
-      margin:0;
-      color:#0d6efd;
+    /* ── NAV ── */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 1px 8px rgba(0,0,0,.06);
     }
-
-    .btn {
-      background:#0d6efd;
-      color:white;
-      padding:10px 18px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:500;
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--blue); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-main); font-weight: 800; font-size: 18px;
     }
+    .logo-text { font-family: var(--font-main); font-weight: 700; font-size: 18px; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 15px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .btn-wa {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--blue); color: #fff; text-decoration: none;
+      padding: 9px 18px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .btn-wa svg { width: 18px; height: 18px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: .3s; }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero {
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      align-items:center;
-      padding:60px 40px;
-      background:white;
+      background: linear-gradient(135deg, #eef4ff 0%, #f0f7ff 60%, #e8f0fe 100%);
+      padding: 72px 5% 64px;
+      display: flex; align-items: center; gap: 48px;
+      min-height: 480px; overflow: hidden; position: relative;
     }
-
+    .hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: rgba(37,99,235,.07); pointer-events: none;
+    }
+    .hero-content { flex: 1; max-width: 520px; animation: fadeUp .7s ease both; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #dbeafe; color: var(--blue); font-size: 13px; font-weight: 600;
+      padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+    }
     .hero h1 {
-      font-size:36px;
-      margin-bottom:15px;
-      color:#222;
+      font-family: var(--font-main); font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800; line-height: 1.18; color: var(--navy-dark); margin-bottom: 18px;
     }
-
-    .hero p {
-      color:#555;
-      line-height:1.6;
+    .hero h1 span { color: var(--blue); }
+    .hero p { color: var(--gray-600); font-size: 16px; line-height: 1.7; margin-bottom: 32px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue); color: #fff; padding: 13px 28px;
+      border-radius: 9px; font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: background .2s, transform .15s;
     }
-
-    .hero-buttons {
-      margin-top:20px;
+    .btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--navy); padding: 12px 28px;
+      border-radius: 9px; font-weight: 600; font-size: 15px; text-decoration: none;
+      border: 2px solid var(--gray-200); transition: border-color .2s, color .2s;
     }
-
-    .hero-buttons a {
-      margin-right:10px;
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; animation: fadeRight .8s ease both; }
+    .hero-image-wrap {
+      position: relative; width: 340px; height: 300px;
     }
-
-    .hero img {
-      width:100%;
-      max-width:420px;
-      justify-self:center;
+    .hero-img-main {
+      width: 180px; height: 200px; background: #dbeafe;
+      border-radius: 20px; position: absolute; left: 20px; top: 20px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 12px 40px rgba(37,99,235,.15);
     }
-
-    /* SERVICES */
-    .services {
-      padding:50px 30px;
-      text-align:center;
+    .hero-img-card {
+      position: absolute; border-radius: 14px; background: #fff;
+      box-shadow: 0 8px 30px rgba(0,0,0,.1); padding: 14px 18px;
+      font-family: var(--font-main); font-weight: 700; font-size: 13px; color: var(--navy);
+      display: flex; align-items: center; gap: 10px;
     }
+    .hero-img-card.card1 { right: 0; top: 30px; }
+    .hero-img-card.card2 { right: 10px; bottom: 20px; }
+    .card-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--blue); }
+    .card-dot.green { background: #22c55e; }
 
-    .services h2 {
-      margin-bottom:30px;
+    /* ── SERVICES ── */
+    .services { padding: 80px 5%; background: var(--white); }
+    .section-label { text-align: center; margin-bottom: 48px; }
+    .section-label h2 { font-family: var(--font-main); font-size: clamp(24px, 3vw, 36px); font-weight: 800; color: var(--navy-dark); }
+    .section-label p { color: var(--gray-400); margin-top: 8px; font-size: 15px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .service-card {
+      border: 1.5px solid var(--gray-200); border-radius: 16px; padding: 32px 28px;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      background: var(--white);
     }
-
-    .cards {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap:20px;
-      max-width:1000px;
-      margin:auto;
+    .service-card:hover {
+      border-color: var(--blue-light); box-shadow: 0 12px 40px rgba(37,99,235,.1);
+      transform: translateY(-4px);
     }
-
-    .card {
-      background:white;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.08);
-      transition:0.3s;
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 14px; background: var(--blue-pale);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
     }
-
-    .card:hover {
-      transform:translateY(-5px);
+    .service-icon svg { width: 28px; height: 28px; color: var(--blue); }
+    .service-card h3 { font-family: var(--font-main); font-weight: 700; font-size: 18px; color: var(--navy-dark); margin-bottom: 10px; }
+    .service-card p { color: var(--gray-600); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+    .learn-more {
+      color: var(--blue); font-weight: 600; font-size: 14px; text-decoration: none;
+      display: flex; align-items: center; gap: 6px; transition: gap .2s;
     }
+    .learn-more:hover { gap: 10px; }
 
-    .card img {
-      width:70px;
-      margin-bottom:15px;
+    /* ── CONTACT ── */
+    .contact { padding: 80px 5%; background: var(--gray-50); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; max-width: 1000px; margin: 0 auto; }
+    .contact-info h2 { font-family: var(--font-main); font-weight: 800; font-size: 28px; color: var(--navy-dark); margin-bottom: 12px; }
+    .contact-info p { color: var(--gray-600); font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+    .info-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+    .info-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-icon svg { width: 18px; height: 18px; color: var(--blue); }
+    .info-text { font-size: 14px; color: var(--gray-600); line-height: 1.5; }
+    .info-text strong { color: var(--gray-800); font-weight: 600; display: block; }
+
+    .contact-form { background: var(--white); border-radius: 16px; padding: 36px; box-shadow: 0 4px 24px rgba(0,0,0,.07); }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; }
+    .form-control {
+      width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray-200);
+      border-radius: 9px; font-family: var(--font-body); font-size: 14px; color: var(--gray-800);
+      outline: none; transition: border-color .2s, box-shadow .2s; background: var(--white);
     }
-
-    .card h3 {
-      margin-bottom:10px;
+    .form-control:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+    textarea.form-control { resize: vertical; min-height: 110px; }
+    select.form-control { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; cursor: pointer; }
+    .btn-submit {
+      width: 100%; background: var(--blue); color: #fff; border: none;
+      padding: 14px; border-radius: 9px; font-family: var(--font-main);
+      font-weight: 700; font-size: 15px; cursor: pointer; transition: background .2s, transform .15s;
     }
+    .btn-submit:hover { background: var(--blue-light); transform: translateY(-1px); }
 
-    .card p {
-      color:#666;
-      font-size:14px;
-    }
-
-    /* CONTACT */
-    .contact {
-      background:white;
-      margin:40px auto;
-      max-width:700px;
-      padding:30px;
-      border-radius:12px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    input, select, textarea {
-      width:100%;
-      padding:10px;
-      margin:10px 0;
-      border-radius:6px;
-      border:1px solid #ccc;
-    }
-
-    button {
-      width:100%;
-      padding:12px;
-      background:#0d6efd;
-      color:white;
-      border:none;
-      border-radius:6px;
-      font-size:16px;
-      cursor:pointer;
-    }
-
+    /* ── FOOTER ── */
     footer {
-      background:#111;
-      color:white;
-      text-align:center;
-      padding:20px;
-      margin-top:30px;
+      background: var(--navy-dark); color: rgba(255,255,255,.7);
+      padding: 56px 5% 28px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .logo-text { color: #fff; font-size: 20px; }
+    .footer-brand p { margin-top: 12px; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.55); }
+    .footer-col h4 { color: #fff; font-family: var(--font-main); font-weight: 700; font-size: 14px; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .footer-col a:hover { color: #fff; }
+    .wa-social {
+      width: 40px; height: 40px; background: #25d366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: transform .2s;
+    }
+    .wa-social:hover { transform: scale(1.1); }
+    .wa-social svg { width: 22px; height: 22px; fill: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px;
+      text-align: center; font-size: 13px; color: rgba(255,255,255,.4);
     }
 
-    .whatsapp {
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:#25D366;
-      color:white;
-      padding:14px;
-      border-radius:50%;
-      text-decoration:none;
-      font-size:20px;
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeRight { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 20px 5%; gap: 16px; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .hero { flex-direction: column; padding: 48px 5%; text-align: center; }
+      .hero-actions { justify-content: center; }
+      .hero-image { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
     }
 
-    @media(max-width:768px){
-      .hero {
-        grid-template-columns:1fr;
-        text-align:center;
-      }
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: #1e293b; color: #fff; padding: 14px 28px; border-radius: 10px;
+      font-size: 15px; font-weight: 500; opacity: 0; transition: all .3s; z-index: 999;
     }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h2>Rayaru Infotech</h2>
-  <a class="btn" href="https://wa.me/919999999999" target="_blank">WhatsApp</a>
-</header>
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">R</div>
+    <span class="logo-text">Rayaru Infotech</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="https://wa.me/919999999999" target="_blank" class="btn-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-<section class="hero">
-  <div>
-    <h1>Your Trusted Partner for Courier, IT & Security Solutions</h1>
-    <p>
-      We offer trusted DTDC courier services, professional laptop repair and maintenance,
-      and reliable CCTV installation for homes and businesses.
-    </p>
-
-    <div class="hero-buttons">
-      <a class="btn" href="#">Our Services</a>
-      <a class="btn" style="background:#6c757d" href="#">Contact Us</a>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Trusted Since 2020
+    </div>
+    <h1>Your Trusted Partner for <span>Courier, IT &amp; Security</span> Solutions</h1>
+    <p>We offer trusted DTDC courier services, professional laptop repair and maintenance, and reliable CCTV installation for homes and businesses.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#contact" class="btn-outline">Contact Us</a>
     </div>
   </div>
 
-  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+  <div class="hero-image">
+    <div class="hero-image-wrap">
+      <!-- Courier illustration placeholder -->
+      <div class="hero-img-main">
+        <svg width="90" height="110" viewBox="0 0 90 110" fill="none">
+          <!-- Body -->
+          <rect x="25" y="45" width="40" height="50" rx="8" fill="#2563eb"/>
+          <!-- Head -->
+          <circle cx="45" cy="32" r="16" fill="#f5c8a8"/>
+          <!-- Cap -->
+          <ellipse cx="45" cy="18" rx="18" ry="6" fill="#1a2744"/>
+          <rect x="27" y="14" width="36" height="8" rx="4" fill="#1a2744"/>
+          <!-- Box -->
+          <rect x="30" y="72" width="30" height="22" rx="4" fill="#f97316"/>
+          <line x1="45" y1="72" x2="45" y2="94" stroke="#fff" stroke-width="1.5"/>
+          <line x1="30" y1="83" x2="60" y2="83" stroke="#fff" stroke-width="1.5"/>
+          <!-- Arms -->
+          <rect x="10" y="50" width="16" height="8" rx="4" fill="#2563eb"/>
+          <rect x="64" y="50" width="16" height="8" rx="4" fill="#2563eb"/>
+        </svg>
+      </div>
+      <div class="hero-img-card card1">
+        <div class="card-dot green"></div>
+        Fast Delivery
+      </div>
+      <div class="hero-img-card card2">
+        <div class="card-dot"></div>
+        24/7 Support
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="services">
-  <h2>Our Services</h2>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">
+    <h2>Our Services</h2>
+    <p>Fast, Secure &amp; Reliable Solutions for You</p>
+  </div>
 
-  <div class="cards">
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/679/679922.png">
-      <h3>DTDC Courier</h3>
-      <p>Fast & secure delivery services with reliable handling.</p>
+  <div class="services-grid">
+    <!-- DTDC -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h3>DTDC Courier Services</h3>
+      <p>Domestic &amp; International courier services with fast delivery, secure handling and door-step pickup.</p>
+      <a href="#contact" class="learn-more">Learn More →</a>
     </div>
 
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png">
-      <h3>Laptop Services</h3>
-      <p>Repair, upgrade, and sales handled by experts.</p>
+    <!-- Laptop -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>Laptop Repair &amp; Sales</h3>
+      <p>We provide laptop repair, service, upgrades and sales of new &amp; refurbished laptops with warranty.</p>
+      <a href="#contact" class="learn-more">Learn More →</a>
     </div>
 
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/3602/3602123.png">
+    <!-- CCTV -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      </div>
       <h3>CCTV Installation</h3>
-      <p>Professional security solutions for all environments.</p>
+      <p>High quality CCTV cameras installation for homes, offices, shops &amp; warehouses with expert support.</p>
+      <a href="#contact" class="learn-more">Learn More →</a>
     </div>
   </div>
 </section>
 
-<section class="contact">
-  <h2>Contact Us</h2>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>We are here to help you. Send us your requirements and we will get back to you.</p>
 
-  <form id="leadForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="tel" id="phone" placeholder="Phone Number" required>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="info-text">
+          <strong>Phone</strong>
+          9999999999
+        </div>
+      </div>
 
-    <select id="service">
-      <option>DTDC Courier</option>
-      <option>Laptop Service</option>
-      <option>CCTV Installation</option>
-    </select>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="info-text">
+          <strong>Email</strong>
+          rayaruinfotech@gmail.com
+        </div>
+      </div>
 
-    <textarea id="message" placeholder="Your Message"></textarea>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="info-text">
+          <strong>Location</strong>
+          Your Location, City, State
+        </div>
+      </div>
 
-    <button type="submit">Send Message</button>
-  </form>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="info-text">
+          <strong>Hours</strong>
+          Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: Closed
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="Enter your name"/>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" class="form-control" id="fphone" placeholder="Enter your phone number"/>
+      </div>
+      <div class="form-group">
+        <label>Select Service</label>
+        <select class="form-control" id="fservice">
+          <option value="">Select Service</option>
+          <option>DTDC Courier Services</option>
+          <option>Laptop Repair &amp; Sales</option>
+          <option>CCTV Installation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea class="form-control" id="fmsg" placeholder="Write your message here..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="sendMessage()">Send Message</button>
+    </div>
+  </div>
 </section>
 
-<footer>
-  © 2026 Rayaru Infotech | All Rights Reserved
+<!-- FOOTER -->
+<footer id="about">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        <span class="logo-text">Rayaru Infotech</span>
+      </div>
+      <p>Courier, IT &amp; Security Solutions under one roof.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#services">DTDC Courier</a></li>
+        <li><a href="#services">Laptop Repair &amp; Sales</a></li>
+        <li><a href="#services">CCTV Installation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <a href="https://wa.me/919999999999" target="_blank" class="wa-social" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2024 Rayaru Infotech. All Rights Reserved.
+  </div>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919999999999" target="_blank">💬</a>
+<!-- Toast -->
+<div class="toast" id="toast">✅ Message sent! We'll get back to you soon.</div>
 
 <script>
-const scriptURL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
 
-document.getElementById("leadForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const data = {
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    service: document.getElementById("service").value,
-    message: document.getElementById("message").value
-  };
-
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(data)
-  })
-  .then(res => res.json())
-  .then(() => {
-    alert("Thanks! We will contact you soon.");
-    document.getElementById("leadForm").reset();
+  // Close nav when a link is clicked on mobile
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
   });
-});
-</script>
 
+  function sendMessage() {
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const service = document.getElementById('fservice').value;
+    const msg     = document.getElementById('fmsg').value.trim();
+
+    if (!name || !phone) {
+      showToast('⚠️ Please enter your name and phone number.');
+      return;
+    }
+
+    // Build WhatsApp message
+    const text = `Hello Rayaru Infotech!%0AName: ${encodeURIComponent(name)}%0APhone: ${phone}%0AService: ${encodeURIComponent(service || 'Not specified')}%0AMessage: ${encodeURIComponent(msg || 'No message')}`;
+    window.open(`https://wa.me/919999999999?text=${text}`, '_blank');
+
+    document.getElementById('fname').value = '';
+    document.getElementById('fphone').value = '';
+    document.getElementById('fservice').value = '';
+    document.getElementById('fmsg').value = '';
+    showToast('✅ Opening WhatsApp to send your message!');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  // Scroll fade-in for service cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.service-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(24px)';
+    card.style.transition = `opacity .5s ease ${i * 0.12}s, transform .5s ease ${i * 0.12}s, border-color .2s, box-shadow .2s`;
+    observer.observe(card);
+  });
+</script>
 </body>
 </html>
